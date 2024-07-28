@@ -45,13 +45,13 @@ const Navbar = () => {
 
         <div className= "w-full flex justify-between items-center max-w-7xl mx-auto">
 
-          <Link to = "/" 
+          <Link to = '/' 
                 
                 className="flex items-center gap-2"
 
                 onClick={ () => {
                   
-                  setActive(""); window.scrollTo(0,0);
+                  setActive(""); window.scrollTo(0,0); 
 
                 }}>
 
@@ -66,18 +66,18 @@ const Navbar = () => {
 
           <ul className="list-none hidden sm:flex flex-row gap-10">
 
-                  {navLinks.map((link) => (
+                  {navLinks.map((nav) => (
               
-                    <li key = {link.id} 
+                    <li key = {nav.id} 
                     
-                        className={`${active === link.title ? "text-white" : "text-secondary"} 
+                        className={`${active === nav.title ? "text-white" : "text-secondary"} 
                                   
                                   hover:text-white text-[18px] font-medium cursor-pointer`}
                         
-                        onClick={() => setActive(link.title) }
+                        onClick={() => setActive(nav.title) }
                         >
                       
-                      <a href={`#${link.id}`}>{link.title}</a>
+                      <a href={`#${nav.id}`}>{nav.title}</a>
                     
                     </li>
                   
@@ -100,21 +100,21 @@ const Navbar = () => {
 
                       <ul className="list-none flex justify-end  items-start flex-col gap-4">
 
-                          {navLinks.map((link) => (
+                          {navLinks.map((nav) => (
 
-                            <li key = {link.id} 
+                            <li key = {nav.id} 
                             
-                                className={`${active === link.title ? "text-white" : "text-secondary"} 
+                                className={`${active === nav.title ? "text-white" : "text-secondary"} 
                                           
                                           font-poppins font-medium cursor-pointer text-[16px]`}
                                 
                                 onClick={() => {
                                   
-                                  setActive(link.title); setToggle(!toggle) 
-                                }}
+                                   setToggle(!toggle);  setActive(nav.title); 
+                                }} 
                               >
                               
-                              <a href={`#${link.id}`}>{link.title}</a>
+                              <a href={`#${nav.id}`}>{nav.title}</a>
                             
                             </li>
 
@@ -129,4 +129,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

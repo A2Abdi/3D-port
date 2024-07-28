@@ -14,7 +14,9 @@ const SectionWrapper = (Component, idName) => function HOC(){
                         
                         viewport={{once: true, amount: 0.25}}>
 
-            <Component/>
+            <span className='hash-span' id={idName}></span>
+
+            <Component />
 
         </motion.section>
     )

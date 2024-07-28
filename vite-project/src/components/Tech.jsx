@@ -15,6 +15,12 @@ const Tech = () => {
         <div className='w-28 h-28' key = {technology.name}>
 
           <BallCanvas icon={technology.icon}/>
+
+          <p className='flex align-center justify-center ext-white-100 text-[16px] p1-1 tracking-wider'>
+            
+                {technology.name}
+          
+          </p>
           
         </div>
       ))}

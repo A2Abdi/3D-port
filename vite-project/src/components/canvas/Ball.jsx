@@ -20,7 +20,7 @@ const Ball = (props) => {
 
       <mesh castShadow receiveShadow scale={2.75}>
 
-        <sphereGeometry args = {[1]}/>
+        <sphereGeometry args = {[1]}> </sphereGeometry>
 
         <meshStandardMaterial
 

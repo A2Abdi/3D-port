@@ -1,80 +1,93 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
+
 import { Canvas } from "@react-three/fiber";
+
 import { Suspense, useEffect, useRef, useState } from "react";
-import spacemanScene from "../assets/3d/spaceman.glb";
+
+import spacemanScene from "../../public/space/falling.glb";
+
+import { OrbitControls } from "@react-three/drei";
+
 import CanvasLoader from "./Loader";
 
-const Spaceman = ({ scale, position }) => {
+const Spaceman = ({ isMobile}) => {
   const spacemanRef = useRef();
+  
   const { scene, animations } = useGLTF(spacemanScene);
+
   const { actions } = useAnimations(animations, spacemanRef);
 
   useEffect(() => {
+
     actions["Idle"].play();
+  
   }, [actions]);
 
   return (
-    <mesh ref={spacemanRef} position={position} scale={scale} rotation={[0, 2.2, 0]}>
-      <primitive object={scene} />
+    <mesh ref={spacemanRef}>
+      
+      <primitive 
+      
+          object = {scene}
+
+          scale = {isMobile ? 0.4: 0.6}
+                 
+          position ={isMobile ? [0, -0.7, 0] : [0, -0.7, 0]}
+                 
+          rotation ={[0, -1, 0]}
+          
+          />
+    
     </mesh>
   );
 };
 
-const SpacemanCanvas = ({ scrollContainer }) => {
-  const [rotationX, setRotationX] = useState(0);
-  const [rotationY, setRotationY] = useState(0);
-  const [scale, setScale] = useState([2, 2, 2]);
-  const [position, setPosition] = useState([0.2, -0.7, 0]);
+const SpacemanCanvas = () => {
+
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = scrollContainer.current.scrollTop;
-      const rotationXValue = scrollTop * -0.0006;
-      const rotationYValue = scrollTop * -0.00075;
-      setRotationX(rotationXValue);
-      setRotationY(rotationYValue);
-    };
 
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setScale([1, 1, 1]);
-        setPosition([0.2, -0.1, 0]);
-      } else if (window.innerWidth < 1024) {
-        setScale([1.33, 1.33, 1.33]);
-        setPosition([0.2, -0.3, 0]);
-      } else if (window.innerWidth < 1280) {
-        setScale([1.5, 1.5, 1.5]);
-        setPosition([0.2, -0.4, 0]);
-      } else if (window.innerWidth < 1536) {
-        setScale([1.66, 1.66, 1.66]);
-        setPosition([0.2, -0.5, 0]);
-      } else {
-        setScale([2, 2, 2]);
-        setPosition([0.2, -0.7, 0]);
-      }
-    };
+    const size = window.matchMedia('(max-width: 500px)');
 
-    handleResize();
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
+    setIsMobile(size.matches);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [scrollContainer]);
+    const handleOnSizeChange = (event) =>{ setIsMobile(event.matches); }
+
+    size.addEventListener('change', handleOnSizeChange);
+
+    return () => size.removeEventListener('change', handleOnSizeChange);
+  
+  }, []);
 
   return (
-    <Canvas className={`w-full h-screen bg-transparent z-10`} camera={{ near: 0.1, far: 1000 }}>
-      <Suspense fallback={<CanvasLoader />}>
-        <directionalLight position={[1, 1, 1]} intensity={2} />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 5, 10]} intensity={2} />
-        <spotLight position={[0, 50, 10]} angle={0.15} penumbra={1} intensity={2} />
-        <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
+    <Canvas className={`w-full h-screen bg-transparent z-10`}
+    
+    camera = {{position: [0, 0, -2], far: 1000, near : 0.1}}>
+      
+      <Suspense fallback = {<CanvasLoader/>}>
 
-        <Spaceman rotationX={rotationX} rotationY={rotationY} scale={scale} position={position} />
+          <directionalLight position={[1, 1, 1]} intensity={2} />
+          
+          <ambientLight intensity={0.5} />
+          
+          <pointLight position={[10, 5, 10]} intensity={2} />
+          
+          <spotLight position={[0, 50, 10]} angle={0.15} penumbra={1} intensity={2} />
+          
+          <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
+
+          <OrbitControls enableZoom ={false}
+            
+                          maxPolarAngle={Math.PI / 2}
+                            
+                          minPolarAngle={Math.PI / 2}
+            />
+            
+          <Spaceman isMobile={isMobile} />
+        
       </Suspense>
+    
     </Canvas>
   );
 };
