@@ -270,7 +270,7 @@ import {
             { name: "GitHub", color: "gray-text-gradient" }
         ],
         image: TrackerApp,
-        source_code_link: "https://github.com/A2Abdi/TrackerApp"
+        source_code_link: "https://github.com/A2Abdi/Tracker-App"
     },
     {
         name: "WallKey",
