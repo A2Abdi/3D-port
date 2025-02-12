@@ -30,7 +30,28 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
+import Identify from './Identifyy-logos.jpeg';
+import DrawAI from './DrawAI-logos.jpeg';
+import Mandelia from './mandelia.png';
+import Portfolio from './Portfolio.webp';
+import D3Port from './D3Port.png';
+import Wallkey from './Wallkey.webp';
+import TrackerApp from './TrackerApp.webp';
+import PortWave from './PortWave.webp'
+
+import WSU from './company/WSU.png';
+import IB from './company/InterviewBuddies.png';
+
 export {
+  WSU, IB,
+  Identify,
+  DrawAI,
+  Mandelia,
+  Portfolio,
+  D3Port,
+  Wallkey,
+  TrackerApp,
+  PortWave,
   logo,
   backend,
   creator,

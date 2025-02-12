@@ -31,7 +31,10 @@ const Hero = () => {
             
             </h1>
 
-            <p className={`${styles.heroSubText} mt2 text-white-100`}>put info here </p>
+            <p className={`${styles.heroSubText} mt2 text-white-100`}>
+              
+              I'm a computer science enthusiast based in Detroit, Michigan. I currently attend Wayne State University, and it's great to meet you! 
+            </p>
 
           </div>
         

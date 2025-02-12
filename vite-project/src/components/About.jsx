@@ -54,10 +54,15 @@ const About = () => {
       
                 className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'>
 
-            I am Groot(jk details)
+          I'm a software engineering student at Wayne State University with a strong passion for technology, solving complex problems, and collaborating with others.
+
+        <br/>
+          
+        <b>Currently looking for Summer 2025 opportunities. </b>
+      
       </motion.p>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
+      <div className='mt-20 flex flex-wrap justify-center gap-10'>
 
           {services.map((service, index) => (
 

@@ -22,7 +22,16 @@ import {
     carrent,
     jobit,
     tripguide,
+    Identify,
+    DrawAI,
+    Mandelia,
+    Portfolio,
+    D3Port,
+    Wallkey,
+    TrackerApp,
+    PortWave,
     threejs,
+    WSU, IB,
   } from "../assets";
   
   export const navLinks = [
@@ -42,20 +51,16 @@ import {
   
   const services = [
     {
+      title: "Backend Developer",
+      icon: backend,
+    },
+    {
       title: "Web Developer",
       icon: web,
     },
     {
       title: "React Native Developer",
       icon: mobile,
-    },
-    {
-      title: "Backend Developer",
-      icon: backend,
-    },
-    {
-      title: "Content Creator",
-      icon: creator,
     },
   ];
   
@@ -116,150 +121,171 @@ import {
   
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
-      iconBg: "#383E56",
-      date: "March 2020 - April 2021",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "React Native Developer",
-      company_name: "Tesla",
-      icon: tesla,
+      title: "Software Engineering intern",
+      company_name: "InterviewBuddies",
+      icon: IB,
       iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
+      date: "June 2024 – August 2024",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "• Developed a scalable Spring Boot microservice to enable seamless communication with the OpenAI API, optimizing AI-driven interactions.",
+        "• Architected and implemented a secure employee sign-in/sign-out system using Spring Boot, Spring Security, PostgreSQL, React, and Tailwind CSS, enhancing access management and user experience.",
+        "• Integrated Spring Security with JWT authentication to enforce robust access controls, ensuring the confidentiality and integrity of sensitive data.",
+        "• Collaborated closely with the development team to enhance backend performance, optimize API interactions, and ensure seamless integration between frontend and backend components."
       ],
     },
     {
-      title: "Web Developer",
-      company_name: "Shopify",
-      icon: shopify,
-      iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "Full stack Developer",
-      company_name: "Meta",
-      icon: meta,
+      title: "IT Intern",
+      company_name: "Wayne State university C&IT",
+      icon: WSU,
       iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
+      date: "Oct 2022 - June 2024",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "• Diagnosed and resolved complex hardware, software, and network issues, ensuring optimal system performance and minimal downtime.",
+        "• Administered and maintained Active Directory (AD), managing user account creation, modification, and deactivation while implementing Group Policies to enhance security and compliance.",
+        "• Developed and deployed system imaging solutions, utilizing industry-standard tools to streamline workstation provisioning and ensure consistent configurations across multiple devices."
       ],
     },
+    {
+      title: "Data Structures and Algorithms Coach",
+      company_name: "SCD wayne club",
+      icon: WSU,
+      iconBg: "#E6DEDD",
+      date: "Sep 2022 - current",
+      points: [
+        "Provided Data Structures and Algorithms tutoring to underclassmen",
+        "Coached students interested in competitive programming to enhance their skills and prepare for competitions",
+      ],
+    },
+    {
+
+      title: "Student Assistant",
+      company_name: "Wayne State Libraries",
+      icon: WSU,
+      iconBg: "#E6DEDD",
+      dates: "Feb 2022 - Oct 2022",
+      points: [
+          "Assisted patrons with the use of library databases, computer equipment, and software.",
+          "Processed patrons' requested materials.",
+          "Inducted, informed, and supported new users with thorough library orientation."
+      ]
+    }
   ];
-  
-  const testimonials = [
-    {
-      testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
-    },
-    {
-      testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-  ];
-  
+   
   const projects = [
     {
-      name: "Car Rent",
-      description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "mongodb",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+        name: "Identify",
+        description:
+            "A computer vision-based application that detects and captures vehicles and pedestrians as they pass through designated areas using OpenCV and MongoDB Atlas.",
+        tags: [
+            { name: "OpenCV", color: "cyan-text-gradient" },
+            { name: "Python", color: "yellow-text-gradient" },
+            { name: "MongoDB Atlas", color: "green-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: Identify,
+        source_code_link: "https://github.com/A2Abdi/OPENCV-python"
     },
     {
-      name: "Job IT",
-      description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "restapi",
-          color: "green-text-gradient",
-        },
-        {
-          name: "scss",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+        name: "DrawAI",
+        description:
+            "A deep learning-powered application that recognizes and predicts handwritten numbers and drawings using neural networks and AI.",
+        tags: [
+            { name: "Python", color: "blue-text-gradient" },
+            { name: "Anaconda", color: "orange-text-gradient" },
+            { name: "Neural Networks", color: "purple-text-gradient" },
+            { name: "ML/AI", color: "pink-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: DrawAI,
+        source_code_link: "https://github.com/A2Abdi/DrawIO"
     },
     {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-      tags: [
-        {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
-        },
-        {
-          name: "css",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+        name: "Mandelbrot and Julia Set Generator",
+        description:
+            "A high-performance visualization tool for generating Mandelbrot and Julia fractal sets, built using C++ and SFML for rendering.",
+        tags: [
+            { name: "C++", color: "blue-text-gradient" },
+            { name: "SFML", color: "red-text-gradient" },
+            { name: "Verlet Integration", color: "purple-text-gradient" },
+            { name: "Microsoft Visual Studio", color: "pink-text-gradient" },
+            { name: "Linux", color: "green-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: Mandelia,
+        source_code_link: "https://github.com/A2Abdi/mandelbrot_and_julia_sets_generator"
     },
-  ];
-  
-  export { services, technologies, experiences, testimonials, projects };
+    {
+        name: "Portfolio Website",
+        description:
+            "A personal portfolio website showcasing projects, skills, and experience. Built using React, TypeScript, and CSS.",
+        tags: [
+            { name: "React", color: "cyan-text-gradient" },
+            { name: "TypeScript", color: "blue-text-gradient" },
+            { name: "CSS", color: "pink-text-gradient" },
+            { name: "NodeJS", color: "green-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: Portfolio,
+        source_code_link: "https://github.com/A2Abdi/Ali-Abdi-Software-Engineer-"
+    },
+    {
+        name: "3D Portfolio Website",
+        description:
+            "An interactive 3D portfolio website developed using React and Three.js to create a visually engaging experience.",
+        tags: [
+            { name: "React", color: "cyan-text-gradient" },
+            { name: "ThreeJS", color: "yellow-text-gradient" },
+            { name: "CSS", color: "pink-text-gradient" },
+            { name: "NodeJS", color: "green-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: D3Port,
+        source_code_link: "https://github.com/A2Abdi/3D-port"
+    },
+    {
+        name: "PortWave",
+        description:
+            "A real-time audio communication system developed in C++ using PortAudio, enabling seamless audio transmission over a network.",
+        tags: [
+            { name: "C++", color: "blue-text-gradient" },
+            { name: "PortAudio", color: "teal-text-gradient" },
+            { name: "Ubuntu", color: "red-text-gradient" },
+            { name: "UDP Sockets", color: "purple-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: PortWave,
+        source_code_link: "https://github.com/A2Abdi/PortWave"
+    },
+    {
+        name: "Tracker App",
+        description:
+            "A full-stack internship tracking web application built with React, Spring Boot, and PostgreSQL, featuring OAuth2 authentication and real-time internship listings.",
+        tags: [
+            { name: "Java", color: "yellow-text-gradient" },
+            { name: "React", color: "cyan-text-gradient" },
+            { name: "Spring Boot", color: "green-text-gradient" },
+            { name: "PostgreSQL", color: "blue-text-gradient" },
+            { name: "Google Cloud", color: "orange-text-gradient" },
+            { name: "AWS EC2", color: "purple-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: TrackerApp,
+        source_code_link: "https://github.com/A2Abdi/TrackerApp"
+    },
+    {
+        name: "WallKey",
+        description:
+            "A cross-platform digital wallet application that enables users to securely store cards and electronic keys via RFID tags.",
+        tags: [
+            { name: "React Native", color: "cyan-text-gradient" },
+            { name: "ExpressJS", color: "green-text-gradient" },
+            { name: "MongoDB", color: "pink-text-gradient" },
+            { name: "Android Studio", color: "blue-text-gradient" },
+            { name: "GitHub", color: "gray-text-gradient" }
+        ],
+        image: Wallkey,
+        source_code_link: "https://github.com/A2Abdi/WallKey"
+    }
+];
+
+export { services, technologies, experiences, projects };
